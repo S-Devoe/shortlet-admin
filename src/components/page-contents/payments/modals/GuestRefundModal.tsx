@@ -8,14 +8,14 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
-import GuestListingCard from "../components/GuestListingCard";
 import { Fragment, useState } from "react";
+import HostListingCard from "../components/HostListingCard";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
-const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
+const GuestRefundModal = ({ isOpen, onClose }: Props) => {
   const [stage, setStage] = useState(1);
 
   const onRefund = () => {
@@ -30,20 +30,20 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
           {stage <= 1 ? (
             <Fragment>
               <h1 className="md:mt-[3rem] font-serif text-center text-primary-lighter font-semibold text-[2.25rem]">
-                ₦1200
+                ₦50
               </h1>
               <section className="w-full max-w-[19rem]">
-                <GuestListingCard />
+                <HostListingCard showDate />
               </section>
 
               <section className="w-full flex flex-col items-center gap-4">
                 <ModalHeader className="!my-[1.5rem] !font-serif !font-semibold !p-0 !text-center !text-primary-lighter !text-[1.25rem]">
-                  Are you sure you want to refund this guest?
+                  Are you sure you want to pay this guest?
                 </ModalHeader>
 
                 <Button
                   onClick={onRefund}
-                  text="Yes, refund guest"
+                  text="Yes, pay guest"
                   className="w-full md:max-w-[15rem] py-3"
                 />
                 <Button
@@ -56,10 +56,12 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
             </Fragment>
           ) : (
             <Fragment>
-              <h1 className="md:mt-[3rem] mb-[2.5rem] font-serif text-center text-primary-lighter font-semibold text-[1.5rem]">
-                You have successfully refunded Adeyemi Akitoye
-                <span className="block text-[2.5rem] "> ₦1200</span>
+              <h1 className="md:mt-[3rem] font-serif text-center text-primary-lighter font-semibold text-[1.5rem]">
+                You have successfully paid the guest.
               </h1>
+              <section className="w-full mt-8 mb-4 max-w-[19rem]">
+                <HostListingCard />
+              </section>
               <Button
                 onClick={() => {
                   onClose();
@@ -76,4 +78,4 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
   );
 };
 
-export default CancelledRefundModal;
+export default GuestRefundModal;

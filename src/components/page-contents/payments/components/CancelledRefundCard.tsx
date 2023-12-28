@@ -51,6 +51,7 @@ const CancelledRefundCard = ({ isRefunded, onRefundClick }: Props) => {
           <Button
             disabled={isRefunded}
             text="Refund Payment"
+            variant="orangeDisabled"
             className="!py-[0.8rem] !px-[2.5rem] "
             onClick={onRefundClick}
           />

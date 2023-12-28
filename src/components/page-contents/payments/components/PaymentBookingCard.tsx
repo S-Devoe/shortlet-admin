@@ -8,8 +8,13 @@ import { useRouter } from "next/navigation";
 interface Props {
   paymentStatus: string;
   bookingStatus: string;
+  tabValue: string;
 }
-const PaymentBookingCard = ({ bookingStatus, paymentStatus }: Props) => {
+const PaymentBookingCard = ({
+  bookingStatus,
+  paymentStatus,
+  tabValue,
+}: Props) => {
   const router = useRouter();
 
   const variant = (status: string) => {
@@ -36,7 +41,7 @@ const PaymentBookingCard = ({ bookingStatus, paymentStatus }: Props) => {
       type="button"
       onClick={() =>
         router.push(
-          `/payments/23?bookingStatus=${bookingStatus}&paymentStatus=${paymentStatus}`
+          `/payments/23?bookingStatus=${bookingStatus}&paymentStatus=${paymentStatus}&tabValue=${tabValue}`
         )
       }
       className="w-full flex items-center bg-[#F9FAFC] gap-[1rem] rounded-[1rem] p-[1rem] "

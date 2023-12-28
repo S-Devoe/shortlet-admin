@@ -1,12 +1,15 @@
 import PaymentBookingCard from "../components/PaymentBookingCard";
-
-const GuestRefundPaymentTab = () => {
+interface Props {
+  tabValue: string;
+}
+const GuestRefundPaymentTab = ({ tabValue }: Props) => {
   return (
     <section className="w-full grid grid-cols-1 gap-4 lg:gap-[1.5rem] lg:grid-cols-2">
       {Array(6)
         .fill(" ")
         .map((_, i) => (
           <PaymentBookingCard
+          tabValue={tabValue}
             paymentStatus={
               (i + 1) % 2 === 0 ? "Payment Pending" : "Payment Complete"
             }
@@ -24,6 +27,6 @@ const GuestRefundPaymentTab = () => {
         ))}
     </section>
   );
-}
+};
 
-export default GuestRefundPaymentTab
+export default GuestRefundPaymentTab;
