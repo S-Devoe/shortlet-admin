@@ -4,8 +4,9 @@ import Image from "next/image";
 
 interface Props {
   isRefunded: boolean;
+  onRefundClick: () => void;
 }
-const CancelledRefundCard = ({ isRefunded }: Props) => {
+const CancelledRefundCard = ({ isRefunded, onRefundClick }: Props) => {
   return (
     <div className="w-full flex justify-between bg-[#F9FAFC] gap-[1rem] rounded-[1rem] p-[1rem] ">
       <div className="flex items-center gap-4">
@@ -51,6 +52,7 @@ const CancelledRefundCard = ({ isRefunded }: Props) => {
             disabled={isRefunded}
             text="Refund Payment"
             className="!py-[0.8rem] !px-[2.5rem] "
+            onClick={onRefundClick}
           />
         </div>
       </div>
