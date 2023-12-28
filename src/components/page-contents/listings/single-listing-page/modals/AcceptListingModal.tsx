@@ -1,4 +1,3 @@
-"use client";
 import BackBtn from "@/components/buttons/backButton";
 import Button from "@/components/buttons/button";
 import {

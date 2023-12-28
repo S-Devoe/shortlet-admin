@@ -1,48 +1,72 @@
-"use client";
-import { useState } from "react";
 import AllListings from "../tabs/AllListings";
 import PendingListing from "../tabs/PendingListing";
 import DeclinedListing from "../tabs/DeclinedListing";
 import ApprovedListing from "../tabs/ApprovedListing";
+import {
+  Tab,
+  TabIndicator,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "@chakra-ui/react";
+import PaginationComponent from "@/components/pagination/pagination.component";
+import React from "react";
 
 const ListingsSection = () => {
-  const [activeTab, setActiveTab] = useState("all");
-
-  const showTab = (value: string) => {
-    switch (value) {
-      case "all":
-        return <AllListings />;
-      case "pending":
-        return <PendingListing />;
-      case "declined":
-        return <DeclinedListing />;
-      case "approved":
-        return <ApprovedListing />;
-      default:
-        return <AllListings />;
-    }
-  };
-
   return (
-    <section className="w-full flex flex-col gap-[2.5rem]  ">
-      <section className="flex items-center w-full overflow-x-scroll hide-scroll md:justify-center ">
-        {listingTab.map((item, i) => (
-          <button
-            type="button"
-            onClick={() => setActiveTab(item)}
-            className={`capitalize px-[2.5rem] pb-3 font-[500] text-[0.875rem] border-b ${
-              activeTab === item
-                ? "text-orange border-b-orange "
-                : " text-gray-three border-b-[#444854] "
-            } `}
-            key={`tab-${i + 1}`}
+    <React.Fragment>
+      <section className="w-full flex flex-col gap-[2.5rem]">
+        <Tabs isLazy variant={"unstyled"}>
+          <TabList
+            borderBottomWidth={"1px"}
+            fontWeight={"medium"}
+            className="!hidden md:!flex text-gray-three"
+            fontSize={"16px"}
+            width={"fit-content"}
+            mx={"auto"}
           >
-            {item}
-          </button>
-        ))}
+            {listingTab.map((item, i) => (
+              <Tab
+                px={"2.5rem"}
+                pb={"3"}
+                fontSize={"14px"}
+                textTransform={"capitalize"}
+                key={i}
+                _selected={{ color: "#FF5626" }}
+              >
+                {item}
+              </Tab>
+            ))}
+          </TabList>
+          <TabIndicator
+            mt={"-1px"}
+            color={"#FF5626"}
+            height="1px"
+            bg="#FF5626"
+            borderRadius="1px"
+            className="!hidden md:!block"
+          />
+          <TabPanels>
+            <TabPanel>
+              <AllListings />
+            </TabPanel>
+            <TabPanel>
+              <DeclinedListing />
+            </TabPanel>
+            <TabPanel>
+              <ApprovedListing />
+            </TabPanel>
+            <TabPanel>
+              <PendingListing />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </section>
-      {showTab(activeTab)}
-    </section>
+      <section className="w-full flex flex-col gap-[2.5rem] mt-2 md:mt-20">
+        <PaginationComponent />
+      </section>
+    </React.Fragment>
   );
 };
 

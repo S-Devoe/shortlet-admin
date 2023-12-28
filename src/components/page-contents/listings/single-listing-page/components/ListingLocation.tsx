@@ -10,7 +10,13 @@ const ListingLocation = () => {
         12 Cowries Avenue, Victoria Island, Lagos
       </p>
       <div className="relative h-[11rem] w-full mt-2 ">
-        <Image src={Map} alt="map" fill sizes="100%" />
+        <Image
+          src={Map}
+          alt="map"
+          fill
+          sizes="100%"
+          style={{ objectFit: "cover" }}
+        />
       </div>
     </section>
   );

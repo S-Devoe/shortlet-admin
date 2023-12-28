@@ -3,25 +3,27 @@ import React from "react";
 import Logo from "../logo.component";
 import BurgerComponent from "./burger/burger.component";
 import {
-  Button,
   Drawer,
   DrawerBody,
-  DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Input,
 } from "@chakra-ui/react";
 import { links } from "@/layouts/dashboard.layout";
 import DashboardNav from "../nav.component";
 import BackBtn from "../buttons/backButton";
+import { usePathname } from "next/navigation";
 interface MobileHeaderProps {}
 
 const MobileHeader: React.FC<MobileHeaderProps> = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const onClose = () => setIsOpen(false);
   const onOpen = () => setIsOpen(true);
+  const pathname = usePathname();
+
+  React.useEffect(() => {
+    onClose();
+  }, [pathname]);
   return (
     <React.Fragment>
       <header className="flex justify-between py-7 px-5">
