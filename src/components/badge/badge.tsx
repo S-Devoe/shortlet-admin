@@ -24,7 +24,7 @@ const Badge = ({ className, variant, text }: Props) => {
 export default Badge;
 
 const badgeVariants = cva(
-  "flex items-center capitalize leading-[1.25rem] justify-center h-fit w-fit px-[0.5rem] py-[0.125rem] rounded-[6.5rem] text-[0.625rem]",
+  "flex items-center font-normal capitalize leading-[1.25rem] justify-center h-fit w-fit px-[0.5rem] py-[0.125rem] rounded-[6.5rem] text-[0.625rem]",
   {
     variants: {
       variant: {
@@ -33,6 +33,7 @@ const badgeVariants = cva(
         destructive: "bg-[#FFEBEB] text-[#FF1F26] ",
         pending: "bg-[#FEFAEC] text-[#E7BC0D] ",
         primary: "bg-[#E1E0F6] text-[#322B8C] ",
+        instance: "bg-[#EFF2F7] text-[#25292D] ",
       },
     },
     defaultVariants: {
