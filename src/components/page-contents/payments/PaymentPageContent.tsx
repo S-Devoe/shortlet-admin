@@ -24,8 +24,9 @@ const PaymentPageContent = () => {
             fontWeight={"medium"}
             className="!flex text-gray-three"
             fontSize={"16px"}
-            width={"fit-content"}
+            width={{ base: "100%", md: "fit-content" }}
             mx={"auto"}
+            overflow={"scroll"}
           >
             {bookingTab.map((item, i) => (
               <Tab
