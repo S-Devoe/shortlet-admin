@@ -44,7 +44,7 @@ const PaymentBookingCard = ({
           `/payments/23?bookingStatus=${bookingStatus}&paymentStatus=${paymentStatus}&tabValue=${tabValue}`
         )
       }
-      className="w-full flex items-center bg-gray-eleven gap-4 rounded-2xl p-4"
+      className="w-full flex items-center  bg-gray-eleven gap-4 rounded-2xl p-4"
     >
       <div className="relative h-28 w-28 shrink-0">
         <Image
@@ -56,7 +56,7 @@ const PaymentBookingCard = ({
         />
       </div>
       <div className="w-full flex flex-col justify-between h-full">
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-between  flex-wrap-reverse md:flex-nowrap ">
           <Badge
             text={bookingStatus}
             className="lg:mt-0.5 capitalize border-[2px] border-white"
@@ -70,7 +70,7 @@ const PaymentBookingCard = ({
         </div>
         <div className="flex flex-col items-start gap-2">
           <h2 className="text-lg font-bold text-black">Eko Atlantic Stays</h2>
-          <div className="shrink-0 flex items-center w-full gap-6">
+          <div className="shrink-0 flex items-center w-full gap-6 flex-wrap md:flex-nowrap ">
             <h4 className="text-sm font-normal text-black-two-three shrink-0">
               11 Nov - 13 Nov
             </h4>

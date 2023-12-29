@@ -1,9 +1,7 @@
 import { Fragment } from "react";
-import HostBookingPaymentTab from "./tabs/HostBookingPaymentTab";
-import GuestRefundPaymentTab from "./tabs/GuestRefundPaymentTab";
-import CancelledBookingRefundTab from "./tabs/CancelledBookingRefundTab";
 import FilterDropdown from "../../dropdown/FilterDropdown";
-import Button from "@/components/buttons/button";
+import PendingReports from "./tabs/PendingReports";
+import ResolvedReports from "./tabs/ResolvedReports";
 import {
   Tab,
   TabIndicator,
@@ -12,9 +10,10 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
+import Button from "@/components/buttons/button";
 import PaginationComponent from "@/components/pagination/pagination.component";
 
-const PaymentPageContent = () => {
+const ReportPageContent = () => {
   return (
     <Fragment>
       <section className="w-full flex flex-col gap-5">
@@ -22,20 +21,25 @@ const PaymentPageContent = () => {
           <TabList
             borderBottomWidth={"1px"}
             fontWeight={"medium"}
-            className="!flex text-gray-three"
+            className="text-gray-three"
             fontSize={"16px"}
-            width={"fit-content"}
-            mx={"auto"}
+            width={"100%"}
+            maxWidth="50rem"
+            display="flex"
+            alignItems="start"
           >
-            {bookingTab.map((item, i) => (
+            {reportTab.map((item, i) => (
               <Tab
-                px={"2rem"}
+                px={{ base: "2rem", md: "5rem" }}
                 pb={"3"}
                 fontSize={"1rem"}
                 textTransform={"capitalize"}
-                key={i + 1}
+                key={`tab-${i + 1}`}
                 _selected={{ color: "#FF5626" }}
                 className="!whitespace-nowrap"
+                display={"flex"}
+                justifyContent={"center"}
+                width='100%'
               >
                 {item.label}
               </Tab>
@@ -47,11 +51,10 @@ const PaymentPageContent = () => {
             height="1px"
             bg="#FF5626"
             borderRadius="1px"
-            className="!hidden md:!block"
           />
 
           <div className="mb-2 mt-4 flex flex-col md:flex-row items-center gap-4 justify-between">
-            <FilterDropdown intialValue="All Bookings" />
+            <FilterDropdown intialValue="Guests" />
             <div className="w-full flex items-center gap-4">
               <FilterDropdown intialValue="Month" />
               <FilterDropdown intialValue="Year" />
@@ -59,8 +62,8 @@ const PaymentPageContent = () => {
             <Button className="w-full !py-4 !rounded-2xl" text="Filter" />
           </div>
           <TabPanels>
-            {bookingTab.map((item, i) => (
-              <TabPanel px="0" key={i + 1}>
+            {reportTab.map((item, i) => (
+              <TabPanel px="0" key={`panel-${i + 1}`}>
                 {item.component}
               </TabPanel>
             ))}
@@ -74,28 +77,17 @@ const PaymentPageContent = () => {
   );
 };
 
-export default PaymentPageContent;
+export default ReportPageContent;
 
-export const bookingTab = [
+export const reportTab = [
   {
-    label: "Host Booking Payment",
-    value: "hostBookingPayment",
-    component: <HostBookingPaymentTab tabValue="hostBookingPayment" />,
+    label: "Pending Reports",
+    value: "pending",
+    component: <PendingReports />,
   },
   {
-    label: "Guests Refundable Caution Payment",
-    value: "guestsRefund",
-    component: <GuestRefundPaymentTab tabValue="guestsRefund" />,
+    label: "Resolved Reports",
+    value: "resolved",
+    component: <ResolvedReports />,
   },
-  {
-    label: "Cancelled Bookings Refund",
-    value: "cancelledBookingsRefund",
-    component: <CancelledBookingRefundTab />,
-  },
-];
-
-const dropDown = [
-  { initialValue: "All Bookings", dropDown: [] },
-  { initialValue: "Month", dropDown: [] },
-  { initialValue: "Year", dropDown: [] },
 ];

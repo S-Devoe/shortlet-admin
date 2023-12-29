@@ -3,7 +3,7 @@ import { useSearchParams } from "next/navigation";
 import { bookingTab } from "../PaymentPageContent";
 import BookingStageSection from "./section/BookingStageSection";
 
-const BookingInfoPage = () => {
+const PaymentInfoPage = () => {
   const params = useSearchParams();
   const activeTab = params.get("tabValue");
 
@@ -28,4 +28,4 @@ const BookingInfoPage = () => {
   );
 };
 
-export default BookingInfoPage;
+export default PaymentInfoPage;

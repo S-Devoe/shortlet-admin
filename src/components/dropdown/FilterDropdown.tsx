@@ -1,5 +1,4 @@
 import BoldArrowBottomIcon from "@/icons/bold-arrow-bottom.icon";
-import React from "react";
 
 interface Props {
   intialValue: string;
