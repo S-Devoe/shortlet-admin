@@ -62,7 +62,6 @@ const ListingsSection = () => {
             </TabPanel>
           </TabPanels>
         </Tabs>
-       
       </section>
       <section className="w-full flex flex-col gap-[2.5rem] mt-2 md:mt-20">
         <PaginationComponent />

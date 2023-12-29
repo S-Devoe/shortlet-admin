@@ -1,4 +1,4 @@
-import BookingInfoPage from "@/components/page-contents/payments/single-booking/BookingInfoPage";
+import BookingInfoPage from "@/components/page-contents/payments/single-payment/PaymentInfoPage";
 
 const BookingPage = () => {
   return <BookingInfoPage />;

@@ -24,12 +24,23 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
-      <ModalContent className="!w-full !mx-4 !rounded-[1rem] !p-[1.5rem] md:!p-[2.5rem] !max-w-[40rem]">
+      <ModalContent
+        w={"100%"}
+        mx={"4"}
+        borderRadius={"16px"}
+        p={{ base: "6", md: "10" }}
+        maxWidth={"40rem"}
+      >
         <BackBtn onClick={onClose} />
-        <ModalBody className="!p-0 md:!p-4 !flex !flex-col !items-center ">
+        <ModalBody
+          p={{ base: 0, md: "4" }}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+        >
           {stage <= 1 ? (
             <Fragment>
-              <h1 className="md:mt-[3rem] font-serif text-center text-primary-lighter font-semibold text-[2.25rem]">
+              <h1 className="md:mt-12 font-serif text-center text-primary-lighter font-semibold text-4xl">
                 ₦1200
               </h1>
               <section className="w-full max-w-[19rem]">
@@ -37,7 +48,14 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
               </section>
 
               <section className="w-full flex flex-col items-center gap-4">
-                <ModalHeader className="!my-[1.5rem] !font-serif !font-semibold !p-0 !text-center !text-primary-lighter !text-[1.25rem]">
+                <ModalHeader
+                  my={"6"}
+                  fontWeight={"semibold"}
+                  p={0}
+                  textAlign={"center"}
+                  fontSize={"20px"}
+                  className="!font-serif !text-primary-lighter"
+                >
                   Are you sure you want to refund this guest?
                 </ModalHeader>
 
@@ -56,9 +74,9 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
             </Fragment>
           ) : (
             <Fragment>
-              <h1 className="md:mt-[3rem] mb-[2.5rem] font-serif text-center text-primary-lighter font-semibold text-[1.5rem]">
+              <h1 className="md:mt-12 mb-10 font-serif text-center text-primary-lighter font-semibold text-2xl">
                 You have successfully refunded Adeyemi Akitoye
-                <span className="block text-[2.5rem] "> ₦1200</span>
+                <span className="block text-[2.5rem]">₦1200</span>
               </h1>
               <Button
                 onClick={() => {
@@ -66,7 +84,7 @@ const CancelledRefundModal = ({ isOpen, onClose }: Props) => {
                   setStage(1);
                 }}
                 text="Finish"
-                className="w-full md:max-w-[15rem] py-3"
+                className="w-full md:max-w-60 py-3"
               />
             </Fragment>
           )}

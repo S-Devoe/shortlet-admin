@@ -50,14 +50,14 @@ export default function Button({
 }
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center w-fit py-[0.5rem] rounded-md text-[1rem] font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed  disabled:opacity-50",
+  "inline-flex items-center justify-center w-fit py-[0.5rem] rounded-md text-[1rem] font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
           "bg-orange hover:bg-orange-dark disabled:bg-gray-seven text-white",
         orangeDisabled:
-          "bg-orange hover:bg-orange-dark disabled:bg-orange-light disabled:text-orange text-white disabled:opacity-100 ",
+          "bg-orange hover:bg-orange-dark disabled:bg-orange-light disabled:text-orange text-white disabled:opacity-100",
         orangeOutline:
           "bg-transparent border border-orange-dark text-orange-dark hover:bg-orange-dark/10 disabled:text-gray-seven",
         outline:

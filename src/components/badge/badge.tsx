@@ -29,11 +29,11 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default: "bg-orange text-white",
-        success: "bg-[#D6FFE2] text-[#003D13] ",
-        destructive: "bg-[#FFEBEB] text-[#FF1F26] ",
-        pending: "bg-[#FEFAEC] text-[#E7BC0D] ",
-        primary: "bg-[#E1E0F6] text-[#322B8C] ",
-        instance: "bg-[#EFF2F7] text-[#25292D] ",
+        success: "bg-brun-fainter text-[#003D13]",
+        destructive: "bg-red-fainter text-red-dark",
+        pending: "bg-jasmine-fainter text-jasmine-dark",
+        primary: "bg-brun-primary-fainter text-primary-lighter",
+        instance: "bg-gray-ten text-gray-two",
       },
     },
     defaultVariants: {
